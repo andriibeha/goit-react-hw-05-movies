@@ -1,0 +1,17 @@
+.link { 
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    color: blue;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.list { 
+    list-style: none;
+    padding: 0;
+}
+
+.genres { 
+    margin-bottom: 10px;
+}
