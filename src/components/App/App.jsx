@@ -1,6 +1,4 @@
-import React from "react";
 import { Route, Routes} from "react-router-dom"
-
 import Header from "components/Header/Header";
 import Home from "components/pages/Home/Home";
 import Movie from "components/pages/Movie/Movie";
@@ -9,7 +7,6 @@ import TrendItem from "components/TrendItem/TrendItem";
 
 
 function App() { 
-
     return (
         <>
         <Routes >

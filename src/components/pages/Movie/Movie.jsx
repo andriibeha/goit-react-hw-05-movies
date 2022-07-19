@@ -1,13 +1,13 @@
-import s from "./Movie.module.css"
 import { useState, useEffect } from "react";
 import MovieList from "components/MovieList/MovieList";
-import {fetchFilmByQuery}  from "services/api"
+import { fetchFilmByQuery } from "services/api";
+import s from "./Movie.module.css";
 
 
 const Movie = () => {
     const [value, setValue] = useState('');
     const [query, setQuery] = useState('');
-    const [movie, setMovie] = useState([])
+    const [movie, setMovie] = useState([]);
 
     const handleInputChagne = e => {
         let input = e.target.value.toLowerCase();

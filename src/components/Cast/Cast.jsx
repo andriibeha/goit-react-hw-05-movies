@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCredits } from 'services/api';
-import s from "./Cast.module.css"
+import s from "./Cast.module.css";
 
 const Cast = () => {
     const { id } = useParams();
@@ -22,7 +22,7 @@ const Cast = () => {
             {actors && (
                 actors.map(actor => (
                     <li className={s.item} key={actor.id}>  
-                        <img src={`${IMG_URL}${actor.profile_path}`} alt="actor" className={s.img} />
+                        <img src={actor.profile_path ? `${IMG_URL}${actor.profile_path}`: ""} alt="actor" className={s.img} />
                         <p>{actor.name}</p>
                         <p>Character: {actor.character}</p>
                     </li>

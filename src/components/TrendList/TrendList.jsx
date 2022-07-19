@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchTrendFilm } from 'services/api';
-import s from "./TrendList.module.css"
-
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import s from "./TrendList.module.css";
 
 const TrendList = () => {
     const [trendFilm, setTrendFilm] = useState([]);
@@ -21,11 +20,10 @@ const TrendList = () => {
                 <Link to={`/movie/${item.id}`} key={item.id}>
                     <div className={s.item}>{item.title}</div>
                 </Link>
-            ) )}
+            ))}
         </ul>
-        
     );
-};
 
+};
 
 export default TrendList;

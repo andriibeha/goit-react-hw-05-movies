@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'services/api';
-import s from "./Reviews.module.css"
+import s from "./Reviews.module.css";
 
 const Reviews = () => {
     const { id } = useParams();
     const [reviews, setReviews] = useState([]);
-
 
     useEffect(() => {
         fetchReviews(id)
@@ -20,15 +19,14 @@ const Reviews = () => {
         <>
             {reviews && (
                 reviews.map(review => (
-                    <li className={s.item} key={review.id}>  
+                    <li className={s.item} key={review.id}>
                         <h2>Author: {review.author}</h2>
                         <p>{review.content}</p>
                     </li>
-                )) 
-            ) 
+                ))) 
             }
         </>
-    )
+    );
 };
 
 export default Reviews;
