@@ -1,8 +1,11 @@
-import {useParams, Outlet  } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import { fetchFilmById } from 'services/api';
-import { Link } from 'react-router-dom'
-import s from "./TrendItem.module.css"
+import { Link, Route, Routes } from 'react-router-dom'
+import Cast from 'components/Cast/Cast';
+import Reviews from 'components/Reviews/Reviews';
+import s from "./TrendItem.module.css";
+
 
 const TrendItem = () => {
     const { id } = useParams();
@@ -37,13 +40,14 @@ const TrendItem = () => {
 
             <p className={s.text}>Additional information</p>
             <ul className={s.list}>
-                <Link className={s.link} to="/movie/:id/credits" >Cast</Link>
-                <Link className={s.link} to="/movie/:id/reviews">Reviews</Link>
-
-                
+                <Link className={s.link} to="credits" >Cast</Link>
+                <Link className={s.link} to={`/movie/${id}/reviews`}>Reviews</Link>
             </ul>
 
-            <Outlet />
+            <Routes>
+                <Route path="credits" element={<Cast />}/>
+                <Route path="reviews" element={<Reviews />}/>
+            </Routes>
         </>
         
     )

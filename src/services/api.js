@@ -31,4 +31,24 @@ export function fetchFilmByQuery(query) {
         })
 };
 
+export function fetchCredits(id) {
+    const url = `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}`;
+    return fetch(url)
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+};
+
+export function fetchReviews(id) {
+    const url = `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}`;
+    return fetch(url)
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+};
+
 
