@@ -1,18 +1,33 @@
 import { useState, useEffect } from "react";
 import MovieList from "components/MovieList/MovieList";
 import { fetchFilmByQuery } from "services/api";
+import { useLocation, useNavigate } from "react-router-dom";
 import s from "./Movie.module.css";
+
 
 
 const Movie = () => {
     const [value, setValue] = useState('');
     const [query, setQuery] = useState('');
     const [movie, setMovie] = useState([]);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleInputChagne = e => {
         let input = e.target.value.toLowerCase();
         setValue(input);
     };
+
+    useEffect(() => {
+        if (location.search) {
+            let locationQuery = new URLSearchParams(location.search).get("query")
+            fetchFilmByQuery(locationQuery)
+            .then(data => {
+                setMovie(data.results)
+            });
+        }
+    }, [location.search])
+
 
     useEffect(() => {
         if (query.trim() === "") {
@@ -31,6 +46,8 @@ const Movie = () => {
         if (value.trim() === '') {
             return
         };
+
+        navigate({...location, search: `query=${value}`})
 
         setQuery(value);
         setValue('');

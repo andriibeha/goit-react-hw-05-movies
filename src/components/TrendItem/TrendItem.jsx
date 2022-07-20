@@ -9,7 +9,7 @@ import s from "./TrendItem.module.css";
 const TrendItem = () => {
     const { id } = useParams();
     const [film, setFilm] = useState(null);
-    const navigate = useNavigate();
+    const navigate = useNavigate(id);
 
     const IMG_URL = "https://image.tmdb.org/t/p/w300";
 
