@@ -19,13 +19,15 @@ const Movie = () => {
     };
 
     useEffect(() => {
-        if (location.search) {
-            let locationQuery = new URLSearchParams(location.search).get("query")
+        if (!location.search) {
+            return
+        };
+
+        let locationQuery = new URLSearchParams(location.search).get("query")
             fetchFilmByQuery(locationQuery)
             .then(data => {
                 setMovie(data.results)
             });
-        }
     }, [location.search])
 
 
